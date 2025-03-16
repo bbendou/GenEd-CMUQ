@@ -3,26 +3,26 @@ this script contains the business logic for handling courses
 """
 from typing import Dict, Optional, List
 from sqlalchemy.orm import Session
-from backend.repository.courses import CourseRepository
+from backend.repository import courses as courses_repo
 from backend.app.schemas import CourseResponse, CourseListResponse
 
 
 class CourseService:
-    """encapsulates business logic for handling courses."""
+    """Encapsulates business logic for handling courses."""
 
     def __init__(self, db: Session):
-        self.course_repo = CourseRepository(db)
+        self.course_repo = courses_repo.CourseRepository(db)
 
     def fetch_course_by_code(self, course_code: str) -> Optional[CourseResponse]:
-        """fetch a course and format its response."""
+        """Fetch a course and format its response."""
         course = self.course_repo.get_course_by_code(course_code)
         if not course:
             return None
 
-        # fetch offered semesters
+        # Fetch offered semesters
         offered_semesters = self.course_repo.get_offered_semesters(course_code)
 
-        # fetch course requirements
+        # Fetch course requirements
         requirements = self.course_repo.get_course_requirements(course_code)
 
         return CourseResponse(
@@ -36,10 +36,8 @@ class CourseService:
             requirements=requirements,
         )
 
-
     def fetch_all_courses(self) -> CourseListResponse:
-        """fetch and structure all courses, prioritizing courses that fulfill
-        at least one requirement."""
+        """Fetch and structure all courses, prioritizing courses that fulfill at least one requirement."""
         courses = self.course_repo.get_all_courses()
 
         for course in courses:
@@ -49,7 +47,7 @@ class CourseService:
         sorted_courses = sorted(
             courses,
             key=lambda c: (c["num_requirements"] == 0, -c["num_offered_semesters"]),
-            reverse=False
+            reverse=False,
         )
 
         structured_courses = [
@@ -68,20 +66,21 @@ class CourseService:
 
         return CourseListResponse(courses=structured_courses)
 
-
-
-
-    def fetch_courses_by_requirement(self, cs_requirement=None, is_requirement=None,
-                                     ba_requirement=None,
-                                     bs_requirement=None) -> CourseListResponse:
-        """fetch and process courses matching requirements."""
-        raw_results = self.course_repo.get_courses_by_requirement(cs_requirement, is_requirement,
-                                                                  ba_requirement, bs_requirement)
+    def fetch_courses_by_requirement(
+        self,
+        cs_requirement=None,
+        is_requirement=None,
+        ba_requirement=None,
+        bs_requirement=None,
+    ) -> CourseListResponse:
+        """Fetch and process courses matching requirements."""
+        raw_results = self.course_repo.get_courses_by_requirement(
+            cs_requirement, is_requirement, ba_requirement, bs_requirement
+        )
 
         # Process results into structured output
         course_dict: Dict[str, dict] = {}
-        for (course_code, course_name, department,
-             prerequisites, requirement, audit_id) in raw_results:
+        for (course_code, course_name, department, prerequisites, requirement, audit_id) in raw_results:
             if course_code not in course_dict:
                 offered_semesters = self.course_repo.get_offered_semesters(course_code)
 
@@ -107,7 +106,7 @@ class CourseService:
                                            for course in course_dict.values()])
 
     def fetch_courses_by_prerequisite(self, has_prereqs: bool) -> CourseListResponse:
-        """fetch and structure courses based on whether they have prerequisites."""
+        """Fetch and structure courses based on whether they have prerequisites."""
         courses = self.course_repo.get_courses_by_prerequisite(has_prereqs)
 
         structured_courses = [
@@ -127,7 +126,7 @@ class CourseService:
         return CourseListResponse(courses=structured_courses)
 
     def fetch_courses_by_department(self, department: str) -> CourseListResponse:
-        """fetch and structure courses filtered by department."""
+        """Fetch and structure courses filtered by department."""
         courses = self.course_repo.get_courses_by_department(department)
 
         structured_courses = [
@@ -147,5 +146,36 @@ class CourseService:
         return CourseListResponse(courses=structured_courses)
 
     def fetch_all_departments(self) -> List[str]:
-        """fetch a distinct list of all departments."""
+        """Fetch a distinct list of all departments."""
         return self.course_repo.get_all_departments()
+
+
+# Free functions for new endpoints
+
+def get_majors():
+    """
+    Returns a list of distinct majors from the Audit table.
+    """
+    return courses_repo.get_all_majors()
+
+
+def get_semesters():
+    """
+    Returns a list of distinct semesters from the Offering table.
+    """
+    return courses_repo.get_all_semesters()
+
+
+def get_analytics(major: str, semester: str):
+    """
+    Retrieves analytics data for the given major and semester.
+    Aggregates the number of distinct courses per requirement.
+    """
+    return courses_repo.get_analytics_data(major, semester)
+
+def get_prediction(course_code: str, target_semester: str):
+    """
+    Retrieves prediction data using the repository function.
+    """
+    from backend.repository import courses as courses_repo
+    return courses_repo.get_prediction_data(course_code, target_semester)

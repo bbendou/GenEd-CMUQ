@@ -1,3 +1,6 @@
+from pydantic import BaseModel
+from typing import Optional
+
 """
 This script contains data models used for API input validation
 and response serialization, ensuring type safety and structure
@@ -72,10 +75,21 @@ class CoverageOut(BaseModel):
 
 
 class PredictOut(BaseModel):
-    """
-    Schema for returning the result of the predictive model.
-    """
     course_code: str
     target_semester: str
     prediction: str
     fraction_offered: Optional[float] = None
+
+    class Config:
+        orm_mode = True
+
+
+class AnalyticsOut(BaseModel):
+    major: str
+    short_requirement: str
+    NumCourses: int
+
+    class Config:
+        from_attributes = True
+
+

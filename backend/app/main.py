@@ -24,4 +24,4 @@ app.add_middleware(
 
 app.include_router(courses.router)
 app.include_router(requirements.router)
-app.include_router(analytics.router)
+#app.include_router(analytics.router)

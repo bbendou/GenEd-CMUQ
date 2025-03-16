@@ -1,63 +1,62 @@
-import os
-import pandas as pd
-from sqlalchemy.orm import Session
-
-# If you'd like to unify logic with your scripts:
-# from backend.app.scripts.bargraph import generate_requirement_coverage
-# from backend.app.scripts.predict_next_sem import predict_offering
+# from sqlalchemy.orm import Session
+# from backend.database.models import Course, CountsFor, Requirement, Offering, Audit
+# from analytics.predict_next_sem import semester_sort_key
+# import os
+# import pandas as pd
 
 
-def get_requirement_coverage(db: Session):
-    """
-    If using DB:
-      - join 'CountsFor', 'Requirement', 'Audit' tables to compute coverage.
-    If using Excel:
-      - read from 'Countsfor.xlsx' & 'Requirement.xlsx', then merge & return list[dict].
-    """
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    data_dir = os.path.join(current_dir, "..", "data", "audit")
-    counts_path = os.path.join(data_dir, "Countsfor.xlsx")
-    req_path = os.path.join(data_dir, "Requirement.xlsx")
+# def predict_course_offering(db: Session, course_code: str, target_semester: str):
+#     """
+#     If using Excel:
+#       - read from 'Offering.xlsx' and apply rule-based logic.
+#     """
+#     # Adjust relative path: go two levels up to repository root, then into data/course.
+#     data_dir = os.path.join(os.path.dirname(__file__), "..", "..", "data", "course")
+#     offering_file = os.path.join(data_dir, "Offering.xlsx")
 
-    df_counts = pd.read_excel(counts_path, engine="openpyxl")
-    df_reqs = pd.read_excel(req_path, engine="openpyxl")
+#     df = pd.read_excel(offering_file, engine="openpyxl")
+#     df.columns = df.columns.str.strip()
+#     df["Offered"] = 1
 
-    df_merged = pd.merge(df_counts, df_reqs, on="requirement", how="left")
-    df_merged["major"] = df_merged["audit_id"].apply(
-        lambda x: x.split("_")[0] if pd.notnull(x) else None
-    )
-    df_merged["short_requirement"] = df_merged["requirement"].apply(
-        lambda x: x.split("---")[-1].strip()
-    )
+#     grouped = df.groupby(["course_code", "semester"])["Offered"].max().reset_index()
+#     unique_semesters = grouped["semester"].unique()
+#     sorted_semesters = sorted(unique_semesters, key=semester_sort_key)
 
-    grouped = (
-        df_merged.groupby(["major", "short_requirement"])["course_code"]
-        .nunique()
-        .reset_index(name="NumCourses")
-    )
+#     wide_data = grouped.pivot(index="course_code", columns="semester", values="Offered")
+#     wide_data = wide_data.reindex(columns=sorted_semesters, fill_value=0).reset_index()
+#     wide_data.columns.name = None
+#     wide_data = wide_data.fillna(0)
 
-    coverage_data = grouped.to_dict(orient="records")
-    return coverage_data
+#     # Locate row for that course
+#     course_row = wide_data[wide_data["course_code"] == course_code]
+#     if course_row.empty:
+#         return {
+#             "course_code": course_code,
+#             "target_semester": target_semester,
+#             "prediction": "NO_DATA",
+#             "reason": f"Course {course_code} not found in data."
+#         }
 
+#     target_season = target_semester[0].upper()  # "S", "F", or "M"
+#     season_cols = [
+#         col for col in sorted_semesters
+#         if col.startswith(target_season) and int(col[1:]) > 20
+#     ]
 
-def predict_course_offering(db: Session, course_code: str, target_semester: str):
-    """
-    If using DB:
-      - Query 'Offering' or 'Enrollment' for past patterns.
-    If using Excel:
-      - read 'Offering.xlsx' & do rule-based logic (like predict_next_sem).
-    """
-    data_dir = os.path.join(os.path.dirname(__file__), "..", "data", "course")
-    offering_file = os.path.join(data_dir, "Offering.xlsx")
+#     offered_values = []
+#     for col in season_cols:
+#         if col in course_row.columns:
+#             offered_values.append(int(course_row[col].iloc[0]))
+#         else:
+#             offered_values.append(0)
 
-    df = pd.read_excel(offering_file, engine="openpyxl")
-    df.columns = df.columns.str.strip()
-    df["Offered"] = 1
+#     fraction_offered = sum(offered_values) / len(offered_values) if offered_values else 0
+#     threshold = 0.5
+#     prediction = "YES" if fraction_offered >= threshold else "NO"
 
-    # Example pivot logic, threshold check, etc.
-    # Return a dict that your Pydantic schema (PredictOut) can handle
-    return {
-        "course_code": course_code,
-        "target_semester": target_semester,
-        "prediction": "YES",  # or "NO"
-    }
+#     return {
+#         "course_code": course_code,
+#         "target_semester": target_semester,
+#         "prediction": prediction,
+#         "fraction_offered": fraction_offered
+#     }
