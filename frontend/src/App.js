@@ -1,13 +1,22 @@
-// import CourseTableMock from "./components/courseTableMock/courseTableMock.js";
-import CourseTableMock from "./components/CourseTablePage";
+import React, { useState } from "react";
+import CourseTablePage from "./components/CourseTablePage";
+import AnalyticsPage from "./components/Analytics";
+import "./styles.css";
 
-function App() {
+const App = () => {
+  const [currentPage, setCurrentPage] = useState("table");
+
   return (
-  <div>
-      <CourseTableMock />
+    <div>
+      <nav style={{ padding: "10px", backgroundColor: "#eee", marginBottom: "20px" }}>
+        <button onClick={() => setCurrentPage("table")}>Main Page</button>
+        <button onClick={() => setCurrentPage("analytics")} style={{ marginLeft: "10px" }}>
+          Analytics Page
+        </button>
+      </nav>
+      {currentPage === "table" ? <CourseTablePage /> : <AnalyticsPage />}
     </div>
   );
-}
+};
 
 export default App;
-

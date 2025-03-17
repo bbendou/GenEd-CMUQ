@@ -3,7 +3,7 @@ this script is the entry point for the FastAPI application.
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.routers import courses, requirements, departments
+from backend.app.routers import courses, requirements, departments, analytics
 
 app = FastAPI(
     title="GenEd API",
@@ -25,3 +25,4 @@ app.add_middleware(
 app.include_router(courses.router)
 app.include_router(requirements.router)
 app.include_router(departments.router)
+app.include_router(analytics.router)

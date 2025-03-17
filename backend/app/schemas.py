@@ -56,3 +56,14 @@ class DepartmentResponse(BaseModel):
 class DepartmentListResponse(BaseModel):
     """Represents a list of departments."""
     departments: List[DepartmentResponse]
+
+class CourseCoverageItem(BaseModel):
+    """Schema for individual requirement coverage."""
+    requirement: str
+    num_courses: int
+
+class CourseCoverageResponse(BaseModel):
+    """Schema for course coverage response."""
+    major: str
+    semester: Optional[str] = None
+    coverage: List[CourseCoverageItem]
