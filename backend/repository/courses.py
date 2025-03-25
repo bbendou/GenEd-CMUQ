@@ -1,7 +1,7 @@
 """
 This script implements the data access layer for courses.
 """
-
+from typing import Optional
 from sqlalchemy.orm import Session
 from sqlalchemy import and_, or_
 from backend.database.models import Course, CountsFor, Requirement, Offering
@@ -190,3 +190,44 @@ class CourseRepository:
             })
 
         return result
+    
+    def get_enrollment_data(self, course_code: str, class_number: Optional[int] = None, sem: Optional[str] = None):
+        """
+        Reads enrollment data from Enrollment.xlsx, filters by course_code,
+        and optionally by class_number and semester.
+        Aggregates total enrollment by semester (or by semester and class if class_number is provided).
+        """
+        import os
+        import pandas as pd
+
+        # Build the absolute path to the enrollment data file
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        data_dir = os.path.join(current_dir, "..", "..", "data", "enrollment")
+        enrollment_file = os.path.join(data_dir, "Enrollment.xlsx")
+        
+        try:
+            df = pd.read_excel(enrollment_file, engine="openpyxl")
+        except Exception as e:
+            raise Exception(f"Error reading enrollment file: {e}")
+
+        df.columns = df.columns.str.strip()
+
+        # Filter the DataFrame for the given course code
+        df_course = df[df["course_code"] == course_code]
+        if class_number is not None:
+            df_course = df_course[df_course["class"] == class_number]
+        if sem is not None:
+            df_course = df_course[df_course["semester"] == sem]
+
+        if df_course.empty:
+            return []
+
+        # If class_number is not provided, group by semester only;
+        # otherwise, group by both semester and class.
+        if class_number is None:
+            grouped = df_course.groupby("semester")["enrollment_count"].sum().reset_index()
+        else:
+            grouped = df_course.groupby(["semester", "class"])["enrollment_count"].sum().reset_index()
+
+        return grouped.to_dict(orient="records")
+

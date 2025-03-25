@@ -5,12 +5,14 @@ filtering courses based on department and requirements, and integrating with
 the service layer for business logic.
 """
 
+from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from backend.database.db import get_db
 from backend.services.courses import CourseService
+from backend.services import courses as courses_free
 from backend.app.schemas import (CourseResponse, CourseListResponse,
-                                 CourseFilter)
+                                 CourseFilter, EnrollmentOut)
 
 router = APIRouter()
 
@@ -95,3 +97,29 @@ def get_course(course_code: str, course_service: CourseService = Depends(get_cou
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
     return course
+
+@router.get("/enrollment", response_model=List[EnrollmentOut])
+async def get_enrollment(
+    course_code: str,
+    class_number: Optional[int] = None,
+    sem: Optional[str] = None
+):
+    """
+    Returns enrollment analytics data for a given course.
+    Optionally filters by class_number and semester.
+    """
+    try:
+        enrollment_data = courses_free.get_enrollment(course_code, class_number, sem)
+        if not enrollment_data:
+            raise HTTPException(status_code=404, detail="No enrollment data found")
+        # Map the key "class" from the data to "class_number" in our response.
+        result = []
+        for row in enrollment_data:
+            result.append({
+                "semester": row["semester"],
+                "class_number": row.get("class"),  # 'class' key as read from Excel
+                "enrollment_count": row["enrollment_count"]
+            })
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

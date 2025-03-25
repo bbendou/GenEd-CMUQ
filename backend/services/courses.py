@@ -5,6 +5,7 @@ This script contains the business logic for handling courses.
 from typing import Dict, Optional
 from sqlalchemy.orm import Session
 from backend.repository.courses import CourseRepository
+from backend.repository import courses as courses_repo
 from backend.app.schemas import CourseResponse, CourseListResponse
 
 
@@ -166,3 +167,38 @@ class CourseService:
                 for c in raw_courses
             ]
         )
+    
+    def get_enrollment(course_code: str, class_number: Optional[int] = None, sem: Optional[str] = None):
+        """
+        Retrieves enrollment data for a given course.
+        This function calls the repository function to read from Enrollment.xlsx.
+        """
+        # Instantiate the repository. Since this function only reads from Excel,
+        # we can pass None as the session.
+        from backend.repository import courses as courses_repo
+        repo = courses_repo.CourseRepository(None)
+        return repo.get_enrollment_data(course_code, class_number, sem)
+    
+def get_majors():
+    return courses_repo.get_all_majors()
+
+def get_semesters():
+    return courses_repo.get_all_semesters()
+
+def get_analytics(major: str, semester: str):
+    return courses_repo.get_analytics_data(major, semester)
+
+def get_prediction(course_code: str, target_semester: str):
+    return courses_repo.get_prediction_data(course_code, target_semester)
+
+def get_enrollment(course_code: str, class_number: Optional[int] = None, sem: Optional[str] = None):
+    """
+    Retrieves enrollment data for a given course. Optionally filters by class_number and semester.
+    This function instantiates a temporary CourseRepository (which reads directly from the Excel file)
+    since enrollment data is not stored in the database.
+    """
+    # Since get_enrollment_data only reads from Excel, we pass None as the session.
+    repo = courses_repo.CourseRepository(None)
+    return repo.get_enrollment_data(course_code, class_number, sem)
+
+

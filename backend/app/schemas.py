@@ -67,3 +67,12 @@ class CourseCoverageResponse(BaseModel):
     major: str
     semester: Optional[str] = None
     coverage: List[CourseCoverageItem]
+
+class EnrollmentOut(BaseModel):
+    semester: str
+    class_number: Optional[int] = None
+    enrollment_count: int
+
+    class Config:
+        orm_mode = True
+

@@ -29,6 +29,7 @@ db.sqlite3
 *.db
 *.sqlite
 dump.rdb
+~$*.xlsx
 
 # FastAPI-specific ignores
 instance/
