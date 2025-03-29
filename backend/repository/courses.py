@@ -276,7 +276,8 @@ class CourseRepository:
                 )
             else:
                 query = query.filter(
-                    (Course.prereqs_text.is_(None)) | (Course.prereqs_text == "") | (Course.prereqs_text == "None")
+                    (Course.prereqs_text.is_(None)) | (Course.prereqs_text == "")
+                      | (Course.prereqs_text == "None")
                 )
 
 

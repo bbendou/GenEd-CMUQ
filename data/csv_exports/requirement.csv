@@ -1,0 +1,183 @@
+requirement,audit_id
+BS in Biological Sciences---Biological Sciences---Modern Biology,bio_0
+BS in Biological Sciences---Biological Sciences---Colloquia,bio_0
+BS in Biological Sciences---Biological Sciences---Genetics,bio_0
+BS in Biological Sciences---Biological Sciences---Biochemistry,bio_0
+BS in Biological Sciences---Biological Sciences---Introduction to Computational Biology,bio_0
+BS in Biological Sciences---Biological Sciences---Cell Biology,bio_0
+BS in Biological Sciences---Biological Sciences---Experimental Techniques in Molecular Biology,bio_0
+BS in Biological Sciences---Biological Sciences---Experimental Biochemistry,bio_0
+BS in Biological Sciences---Biological Sciences---Topics in Research,bio_0
+BS in Biological Sciences---Biological Sciences---Biological Sciences Electives---Advanced Biological Sciences Electives,bio_0
+BS in Biological Sciences---Biological Sciences---Biological Sciences Electives---Biological Sciences Electives---Departmental Electives Group,bio_0
+BS in Biological Sciences---Biological Sciences---Biological Sciences Electives---Biological Sciences Electives---Undergraduate Research,bio_0
+BS in Biological Sciences---Biological Sciences---Biological Sciences Electives---Biological Sciences Electives---Interdisciplinary Electives Group,bio_0
+BS in Biological Sciences---Chemistry---Modern Chemistry I,bio_0
+BS in Biological Sciences---Chemistry---Modern Chemistry II,bio_0
+BS in Biological Sciences---Chemistry---Organic Chemistry I,bio_0
+BS in Biological Sciences---Chemistry---Organic Chemistry II,bio_0
+BS in Biological Sciences---Chemistry---General Chemistry Lab,bio_0
+BS in Biological Sciences---Chemistry---Organic Chemistry Lab,bio_0
+"BS in Biological Sciences---Mathematics, Physics and Computer Science---Programming",bio_0
+"BS in Biological Sciences---Mathematics, Physics and Computer Science---Calculus I",bio_0
+"BS in Biological Sciences---Mathematics, Physics and Computer Science---Calculus II",bio_0
+"BS in Biological Sciences---Mathematics, Physics and Computer Science---Physics I",bio_0
+"BS in Biological Sciences---Mathematics, Physics and Computer Science---Physics II",bio_0
+"BS in Biological Sciences---Mathematics, Physics and Computer Science---Core@CMU",bio_0
+BS in Biological Sciences---Options---Biochemistry---Required Biology Electives---Advanced Biochemistry,bio_0
+BS in Biological Sciences---Options---Biochemistry---Required Biology Electives---Advanced Calculus,bio_0
+BS in Biological Sciences---Options---Biochemistry---Any ONE of the following courses,bio_0
+BS in Biological Sciences---Options---Biochemistry---Recommended Biology Electives,bio_0
+BS in Biological Sciences---Options---Biophysics---Required Biology Electives,bio_0
+BS in Biological Sciences---Options---Biophysics---Recommended Biology Electives,bio_0
+BS in Biological Sciences---Options---Cell Biology---Required Biology Electives,bio_0
+BS in Biological Sciences---Options---Cell Biology---Any ONE of the following courses,bio_0
+BS in Biological Sciences---Options---Computational Biology---Required Biology Electives,bio_0
+BS in Biological Sciences---Options---Computational Biology---Any ONE of the following courses,bio_0
+BS in Biological Sciences---Options---Computational Biology---Recommended Biology Electives,bio_0
+BS in Biological Sciences---Options---Genetics---Required Biology Electives---Genetics,bio_0
+BS in Biological Sciences---Options---Genetics---Required Biology Electives,bio_0
+BS in Biological Sciences---Options---Genetics---Recommended Biology Electives,bio_0
+BS in Biological Sciences---Options---Developmental Biology---Required Biology Electives,bio_0
+BS in Biological Sciences---Options---Developmental Biology---Recommended Biology Electives,bio_0
+BS in Biological Sciences---Options---Molecular Biology---Required Biology Elective,bio_0
+BS in Biological Sciences---Options---Molecular Biology---Recommended Biology Elective,bio_0
+BS in Biological Sciences---Options---Neuroscience---Required Biology Electives---Cellular Neuroscience,bio_0
+BS in Biological Sciences---Options---Neuroscience---Required Biology Electives---Systems Neuroscience,bio_0
+BS in Biological Sciences---Options---Neuroscience---Any ONE of the following courses,bio_0
+EY2022 - Qatar Biological Sciences - General Education---First-Year Seminar,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Interpretation and Argument,bio_1
+EY2022 - Qatar Biological Sciences - General Education---C @ CM,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Third-Year Seminar,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Third-Year Seminar---Approved Coursework,bio_1
+EY2022 - Qatar Biological Sciences - General Education---ENGAGE Courses,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Cultural/Global Understanding---Modern Languages Course,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Cultural/Global Understanding,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Cultural/Global Understanding---Approved Coursework,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Life Sciences,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Life Sciences---Introduction to Computational Biology,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Life Sciences---Modern Biology,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Life Sciences---Biochemistry I,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Physical Sciences,bio_1
+"EY2022 - Qatar Biological Sciences - General Education---Mathematics, Statistics, and Computer Science",bio_1
+"EY2022 - Qatar Biological Sciences - General Education---Mathematics, Statistics, and Computer Science---Concepts",bio_1
+"EY2022 - Qatar Biological Sciences - General Education---Mathematics, Statistics, and Computer Science---Matrix Algebra",bio_1
+"EY2022 - Qatar Biological Sciences - General Education---Mathematics, Statistics, and Computer Science---Differential Equations",bio_1
+EY2022 - Qatar Biological Sciences - General Education---STEM Course,bio_1
+EY2022 - Qatar Biological Sciences - General Education---Non-Technical Breadth Electives,bio_1
+BS in Information Systems---Technical Core---Mathematics,is_0
+BS in Information Systems---Technical Core---Computer Science Requirement,is_0
+BS in Information Systems---Information Systems Core---First Year Colloquium,is_0
+BS in Information Systems---Information Systems Core---Information Systems Milieux,is_0
+BS in Information Systems---Information Systems Core---Database Design and Development,is_0
+BS in Information Systems---Information Systems Core---Application Design and Development,is_0
+BS in Information Systems---Information Systems Core---HCI Requirement,is_0
+BS in Information Systems---Information Systems Core---Foundations of Software Engineering,is_0
+BS in Information Systems---Information Systems Core---Information Systems Consulting Project,is_0
+BS in Information Systems---Information Systems Core---Managing Digital Transformation,is_0
+BS in Information Systems---Information Systems Breadth---Professional Communications,is_0
+BS in Information Systems---Information Systems Breadth---Quantitative Analysis and Research Methods,is_0
+BS in Information Systems---Information Systems Breadth---Innovation and Entrepreneurship,is_0
+BS in Information Systems---Concentration---Data Science---Data Science Concentration---Data Science Technical Core,is_0
+BS in Information Systems---Concentration---Data Science---Data Science Concentration---Data Science Applications,is_0
+BS in Information Systems---Concentration---Data Science---Data Science Concentration---Summative Course,is_0
+"BS in Information Systems---Concentration---Digitalization---Digitalization Concentration---Enabling Methods, Techniques and Tools",is_0
+BS in Information Systems---Concentration---Digitalization---Digitalization Concentration---Orthogonal Topics,is_0
+BS in Information Systems---Concentration---Digitalization---Digitalization Concentration---Summative Course,is_0
+BS in Information Systems---Concentration---Information Security and Privacy---Information Security and Privacy Concentration---Technical Core,is_0
+BS in Information Systems---Concentration---Information Security and Privacy---Information Security and Privacy Concentration---Regulatory and Behavioral Core,is_0
+BS in Information Systems---Concentration---Information Security and Privacy---Information Security and Privacy Concentration---Summative Course,is_0
+Qatar Information Systems - General Education - 2024+---General Education---Core@CMU,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Foundations---Communication,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Foundations---Communication---Mini Courses,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Foundations---Data Analysis,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Foundations---Computational Thinking,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Foundations---Contextual Thinking,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Foundations---Intercultural and Global Inquiry,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Foundations---Scientific Inquiry,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Foundations---Scientific Inquiry---D4-001,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---Humanities,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---Humanities---D5-001,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---Humanities---D5-002,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---Social Sciences,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---Social Sciences---D6-001,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---The Arts,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---The Arts---D7-001,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---Logic/Mathematical Reasoning,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---Logic/Mathematical Reasoning---D8-001,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---Additional Disciplines (Business/Design/Engineering),is_1
+Qatar Information Systems - General Education - 2024+---General Education---Disciplinary Perspectives---Additional Disciplines (Business/Design/Engineering)---D9-001,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Special Seminars---Grand Challenge Seminar,is_1
+Qatar Information Systems - General Education - 2024+---General Education---Special Seminars---Perspectives on Justice and Injustice,is_1
+Qatar Information Systems - General Education - 2024+---General Education,is_1
+BS in Computer Science---Computer Science,cs_0
+BS in Computer Science---Computer Science---Introduction to Computer Systems,cs_0
+BS in Computer Science---Computer Science---Artificial Intelligence Elective,cs_0
+BS in Computer Science---Computer Science---Domains Elective,cs_0
+BS in Computer Science---Computer Science---Logics & Languages Elective,cs_0
+BS in Computer Science---Computer Science---Software Systems Elective,cs_0
+BS in Computer Science---Mathematics and Probability---Calculus,cs_0
+BS in Computer Science---Mathematics and Probability---Calculus---3D Calculus,cs_0
+BS in Computer Science---Mathematics and Probability---Mathematical Foundations for CS,cs_0
+BS in Computer Science---Mathematics and Probability---Matrix/Linear Algebra,cs_0
+BS in Computer Science---Mathematics and Probability---Probability,cs_0
+BS in Computer Science---Mathematics and Probability---Probability---Probability and Statistics 36-22x sequence,cs_0
+BS in Computer Science---Mathematics and Probability---Probability---Probability and Statistics 36-23x sequence,cs_0
+BS in Computer Science---Technical Communication,cs_0
+BS in Computer Science---SCS Electives,cs_0
+BS in Computer Science---First-year Immigration Course,cs_0
+BS in Computer Science---Computing @ Carnegie Mellon,cs_0
+Qatar CS - General Education---First Year Writing,cs_1
+Qatar CS - General Education---First Year Writing---2 Writing Minis,cs_1
+"Qatar CS - General Education---Category 1: Cognition---Cognition, Choice, and Behavior (CS, CB, & HCI)",cs_1
+Qatar CS - General Education---Category 1: Cognition---Cognitive Studies (AI),cs_1
+"Qatar CS - General Education---Category 2: Economic, Political, and Social Institutions",cs_1
+Qatar CS - General Education---Category 3: Cultural Analysis,cs_1
+Qatar CS - General Education---Humanities/Arts Electives,cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CS, AI, & HCI)---Any Department",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CS, AI, & HCI)---Same Department---Option 1",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CS, AI, & HCI)---Same Department---Option 2---Biology Course",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CS, AI, & HCI)---Same Department---Option 2---Paired with Biology",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CS, AI, & HCI)---Same Department---Option 2---Paired with Biology---Bioengineering Course",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CS, AI, & HCI)---Lab Requirement",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CB)---Science/Engineering, Any Department (4 courses)---Physics",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CB)---Science/Engineering, Any Department (4 courses)---Chemistry",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CB)---Science/Engineering, Any Department (4 courses)---Modern Biology",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CB)---Science/Engineering, Any Department (4 courses)---Molecular Biology",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CB)---Science/Engineering, Same Department (2 courses)---Modern Biology",cs_1
+"Qatar CS - General Education---Science and Engineering---Science and Engineering (CB)---Science/Engineering, Same Department (2 courses)---Molecular Biology",cs_1
+Qatar CS - General Education---Science and Engineering---Science and Engineering (CB)---Lab Requirement,cs_1
+BS in Business Administration---Business Foundations---Mathematics---Calculus,ba_0
+BS in Business Administration---Business Foundations---Mathematics---Multivariate Analysis,ba_0
+BS in Business Administration---Business Foundations---Mathematics---Models of Optimization,ba_0
+BS in Business Administration---Business Foundations---Economics---Microeconomics,ba_0
+BS in Business Administration---Business Foundations---Economics,ba_0
+BS in Business Administration---Business Foundations---Economics---Intermed. Micro or Macro,ba_0
+BS in Business Administration---Business Foundations---Statistics---Prob/Stats for Business,ba_0
+BS in Business Administration---Business Foundations---Statistics---Regression Analysis,ba_0
+BS in Business Administration---Business Core,ba_0
+BS in Business Administration---BLE,ba_0
+BS in Business Administration---Management Game/ Consulting Project,ba_0
+BS in Business Administration---Concentration---Accounting---Accounting Concentration---Required Courses,ba_0
+BS in Business Administration---Concentration---Accounting---Accounting Concentration---Area Electives,ba_0
+BS in Business Administration---Concentration---Business Analytics & Technologies---Business Analytics and Technologies Concentration---Required Courses,ba_0
+BS in Business Administration---Concentration---Business Analytics & Technologies---Business Analytics and Technologies Concentration---Area Electives,ba_0
+BS in Business Administration---Concentration---Entrepreneurship---Entrepreneurship Concentration---Required Courses,ba_0
+BS in Business Administration---Concentration---Entrepreneurship---Entrepreneurship Concentration---Area Electives,ba_0
+BS in Business Administration---Entrepreneurship---Entrepreneurship Concentration---Two Area Electives---Independent Study - Special Permission Required,ba_0
+BS in Business Administration---Concentration---Finance---Finance Concentration---Required Courses,ba_0
+BS in Business Administration---Concentration---Finance---Finance Concentration---Area Electives,ba_0
+BS in Business Administration---Concentration---Global Economics & Business---Global Economics and Business Concentration---Required Courses,ba_0
+BS in Business Administration---Global Economics & Business---Global Economics and Business Concentration---Required Courses,ba_0
+BS in Business Administration---Concentration---Global Economics & Business---Global Economics and Business Concentration---Area Electives,ba_0
+BS in Business Administration---Concentration---Marketing Management---Marketing Management Concentration---Required Courses,ba_0
+BS in Business Administration---Concentration---Marketing Management---Marketing Management Concentration---Area Electives,ba_0
+BS in Business Administration---Concentration---Operations Management---Operations Management Concentration---Required Courses,ba_0
+BS in Business Administration---Concentration---Operations Management---Operations Management Concentration---Area Electives,ba_0
+BS in Business Administration---Concentration---Strategic Management---Strategic Management Concentration---Required Courses,ba_0
+BS in Business Administration---Concentration---Strategic Management---Strategic Management Concentration---Area Electives,ba_0
+BS in Business Administration---Business Electives---Business Electives,ba_0
+BS in Business Administration---Core@CMU,ba_0
+EY2022 Qatar Business Administration - University Core Requirements---CMU First Year Writing---Semester Long Writing Course,ba_1
+EY2022 Qatar Business Administration - University Core Requirements---CMU First Year Writing,ba_1
+EY2022 Qatar Business Administration - University Core Requirements,ba_1
