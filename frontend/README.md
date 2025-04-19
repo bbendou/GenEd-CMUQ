@@ -71,6 +71,8 @@ frontend/
 │   ├── manifest.json      # PWA settings
 │   └── icons              # App icons 
 │
+├── docs/                # Documentation on all components
+│
 ├── src/
 │   ├── components/        # React components
 │   │   ├── CourseTablePage.js
@@ -81,7 +83,9 @@ frontend/
 │   │   ├── MultiSelectDepartment.js
 │   │   └── SelectedFilters.js
 │   ├── styles.css         # App styling
+│   ├── planTabStyles.css  # App styling for planning tab
 │   └── index.js           # Entry point
+│   └── App.js           
 │
 ├── .env                   # API base URL config
 ├── package.json           # Project metadata & dependencies
