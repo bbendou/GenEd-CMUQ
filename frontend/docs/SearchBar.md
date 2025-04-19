@@ -5,6 +5,25 @@
 Provides the search and filtering interface for the GenEd course list. Supports input by course code, department selection, and dropdown filters for location and course type (Core/GenEd). State is managed via props and updates are pushed to the parent component.
 
 ---
+## Instructions
+The search bar is located at the top of the page, above the course table. It allows users to refine their search using a combination of inputs and filters for more accurate results.<img width="772" alt="Screenshot 2025-04-19 at 2 44 29 PM" src="https://github.com/user-attachments/assets/15169f1c-df29-42f7-b0b2-2b6ea8c9db78" />
+
+### Course Code Input
+Enter a full or partial course code (e.g., 76-101, 101, or 76 101) to search for specific courses by number. The course code will appear as a removable tag once searched.
+
+### Department Dropdown
+Choose a department to filter courses offered by that department. Select one or multiple departments and click on the *Apply Filters* button. The selected departments will appear as a removable tag once applied. <br>
+<img width="260" alt="Screenshot 2025-04-19 at 2 38 50 PM" src="https://github.com/user-attachments/assets/bbb4f12c-8f81-4475-8a20-2da1dc244633" />
+
+### Location Checkboxes
+Toggle the "Qatar" and "Pittsburgh" checkboxes and click on the *Apply Filters* button to filter courses based on the campus where they are offered. <br>
+<img width="260" alt="Screenshot 2025-04-19 at 2 38 39 PM" src="https://github.com/user-attachments/assets/36038913-b58b-4324-9e13-a7a4d0a2d7f5" />
+
+### Course Type Checkboxes:
+Use the "Core" and "GenEd" checkboxes and click on the *Apply Filters* button to limit the results based on the type of requirement a course fulfills. <br>
+<img width="262" alt="Screenshot 2025-04-19 at 2 38 30 PM" src="https://github.com/user-attachments/assets/35288bc9-8e90-4bff-a709-254dd80f7424" />
+
+--- 
 
 ## Props
 
