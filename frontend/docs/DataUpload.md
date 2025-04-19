@@ -5,6 +5,10 @@
 Provides a user interface to upload datasets for initializing or updating the backend database. Supports uploading course ZIPs, audit ZIPs, enrollment Excel files, and department CSV files. Performs client-side validation for structure and file type before uploading.
 
 ---
+## Instructions
+For instructions, please visit the dedicated upload URL.
+
+---
 
 ## Internal State
 
