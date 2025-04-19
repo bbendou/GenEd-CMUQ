@@ -11,9 +11,9 @@ The dropdowns under each major (BA, BS, CS, IS) and the Offered column allow you
 
 1. Open the dropdown by clicking the “Select Requirements ▼” button.
 2. Scroll through available options. These represent requirement paths (e.g., GenEd → Science and Engineering → Lab Requirement).
-3. Check the boxes to select one or multiple filters. Click on *Apply Filters* when you're done choosing to update the table.
+3. Check the boxes to select one or multiple filters. Click on *Apply Filters* when you're done choosing to update the table. This *Apply* button is disabled (gray) if there are no filters selected.
      - To select all options, click the “SELECT ALL” button. This will dynamically update the table.
-     - To clear all selections, click the “CLEAR ALL” button. This will dynamically update the table.
+     - To clear all selections, click the “CLEAR ALL” button. This will dynamically update the table. This button is disabled (gray) if there are no active filters for the major.
 4. Selected filters will appear as colored tags above the table.
 5. To remove requirement/offering filters:
    - Click on the 'x' button on its respective filter tags.
