@@ -1,14 +1,37 @@
 # Component: `<EnrollmentAnalytics>`
 
-## 📌 Purpose
+## Purpose
 
 Displays enrollment trends for CMU-Q courses. Combines two sub-components:
 - **AggregatedEnrollmentAnalytics**: shows total enrollment across semesters for multiple selected courses.
 - **ClassEnrollmentAnalytics**: displays enrollment per class year (Freshman, Sophomore, etc.) for a single course.
 
 ---
+## Instructions
+At the top of the site, select the *Analytics* tab and scroll down to access visual insights on past course enrollment trends.
 
-## 🔧 Internal Components
+### Enrollment Analytics Across Courses
+Use this section to compare enrollment patterns across multiple courses over time.
+1. Enter a course code (e.g., 15-112, 15-110) into the input field and click “Add Course.”
+2. Each selected course will appear as a tag below the input, and its enrollment trend will be plotted on the graph.
+3. The X-axis displays semesters (e.g., S20, F22, S25), and the Y-axis shows enrollment counts.
+4. Hover over the graph points for exact enrollment values per course and semester.
+5. To remove a course from the chart, click the × on its corresponding tag.
+<br>
+<img width="600" alt="Screenshot 2025-04-19 at 3 55 23 PM" src="https://github.com/user-attachments/assets/a6986a29-8cf7-48e6-82f5-02d62c34cf8a" />
+
+### Enrollment Analytics Across Classes
+Use this section to see how a single course is taken by different student groups over time.
+1. Enter the course code (e.g., 67-262) into the input field and click “Load Course.”
+2. The chart will display enrollment counts for each student class group (e.g., Sophomores, Juniors, Seniors) across recent semesters.
+3. Each group is color-coded and appears in the graph legend.
+Use this data to understand which year levels typically take the course and how that changes over time.
+<br>
+<img width="600" alt="Screenshot 2025-04-19 at 3 55 16 PM" src="https://github.com/user-attachments/assets/0833a068-2726-47f0-8282-518c6db314da" />
+
+---
+
+## Internal Components
 
 ### 1. `<AggregatedEnrollmentAnalytics />`
 
@@ -30,7 +53,7 @@ Displays enrollment trends for CMU-Q courses. Combines two sub-components:
 
 ---
 
-## 📤 Example Usage
+## Example Usage
 
 ```jsx
 <EnrollmentAnalytics />
@@ -40,7 +63,7 @@ Place this component inside the `Analytics` tab of your app to let users explore
 
 ---
 
-## 🧪 Related Tests
+## Related Tests
 
 - `EnrollmentAnalytics.test.js` — test coverage includes:
   - API calls for valid/invalid course codes
@@ -49,7 +72,7 @@ Place this component inside the `Analytics` tab of your app to let users explore
 
 ---
 
-## 🎨 Styling
+## Styling
 
 | Class / Style     | Description |
 |-------------------|-------------|
@@ -61,7 +84,7 @@ Place this component inside the `Analytics` tab of your app to let users explore
 
 ---
 
-## 🚨 Notes
+## Notes
 
 - Requires backend support at:  
   `GET /analytics/enrollment-data?course_code=XX-XXX`
