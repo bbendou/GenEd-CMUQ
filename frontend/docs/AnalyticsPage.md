@@ -8,6 +8,12 @@ Serves as the main analytics dashboard in the GenEd platform. Displays visual in
 
 ---
 
+## Instructions
+1. On the tab located on the top of the page, click on the *Analytics* tab.
+<img width="800" alt="Screenshot 2025-04-19 at 1 08 46 PM" src="https://github.com/user-attachments/assets/77952f5d-91e2-494a-8a4b-6d71a7b4d80a" />
+
+---
+
 ## Internal State
 
 | State Variable   | Description |
@@ -65,3 +71,4 @@ Used in the **Analytics** tab of the GenEd app. This component provides an overv
 
 - Majors are hardcoded in the component for display purposes, but can be dynamically sourced if backend supports it.
 - The selected major is passed to both analytics views for synchronized filtering.
+
