@@ -6,7 +6,7 @@ Displays a bar chart showing how many courses fulfill each requirement category 
 
 ---
 ## Instructions
-1. On the top of the page, select the *Analytics* page.
+1. On the top of the page, select the *Analytics* tab.
 2. Locate the *Category Coverage* section.
 3. Click on the *Major* dropdown to select a major. This will display all the Core and Gen-Ed requirements on the graph, listed on the Y-axis. <br>
    <img width="200" alt="Screenshot 2025-04-19 at 1 11 48 PM" src="https://github.com/user-attachments/assets/471af2c3-429a-4856-8763-53d50974afdd" />
