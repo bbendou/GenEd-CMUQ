@@ -1,12 +1,29 @@
 # Component: `<SelectedFilters>`
 
-## 📌 Purpose
+## Purpose
 
-Displays all currently applied filters (semesters, prerequisites, and requirement filters) as removable tags. Dynamically groups requirement tags by fully-selected groups and formats them visually.
+Displays all currently applied filters (semesters, prerequisites, and requirement filters) as removable tags. Dynamically groups requirement tags by fully-selected groups and formats them visually. It provides a quick summary of the current filtering criteria.
+
+---
+## Instructions
+The selected filters section appears just above the course table and displays all active filters applied through the dropdowns or search bar. There are different types:
+- Requirement Filters: Each selected requirement appears as a colored tag based on the associated major (e.g., CS, IS, BA, BS). These tags show a shortened version of the requirement path,  displaying only the last two levels for clarity.
+- Offered Semester Filters: Selected semesters (e.g., F24, S25) are displayed as gray tags. These reflect your choices from the "Offered" dropdown column in the table header.
+- Pre-req Filters: If you selected "No-Pre Reqs" or "Only with Pre-Req"s in the pre-req column, these will be displayed as gray tags.
+
+These filters will appear on the search bar section:
+- Department dropdown
+- Course code input <br>
+They will appear as tags directly below the search bar. These appear as black and indicate the current department and course being searched.
+
+<br>
+To remove these filters: click the × button on any tag to remove that specific filter. The course table will update immediately to reflect the change. <br>
+<img width="424" alt="Screenshot 2025-04-19 at 2 38 09 PM" src="https://github.com/user-attachments/assets/30753490-c19e-4e55-932e-ff14d935ba35" />
+
 
 ---
 
-## 🔧 Props
+## Props
 
 | Prop Name                  | Type     | Required | Description |
 |----------------------------|----------|----------|-------------|
@@ -20,7 +37,7 @@ Displays all currently applied filters (semesters, prerequisites, and requiremen
 
 ---
 
-## 🧠 Logic Overview
+## Logic Overview
 
 - Uses `useMemo()` to build a nested tree of requirement groupings from `allRequirements`.
 - Displays:
@@ -32,7 +49,7 @@ Displays all currently applied filters (semesters, prerequisites, and requiremen
 
 ---
 
-## 📤 Example Usage
+## Example Usage
 
 ```jsx
 <SelectedFilters
@@ -50,13 +67,13 @@ Use this component underneath the search bar to show users which filters are act
 
 ---
 
-## 🧱 Related Components
+## Related Components
 
 - Used in conjunction with `<CourseTablePage>` and `<SearchBar>`
 
 ---
 
-## 🧪 Related Tests
+## Related Tests
 
 - `SelectedFilters.test.js` — tests:
   - Displaying correct tags
@@ -65,7 +82,7 @@ Use this component underneath the search bar to show users which filters are act
 
 ---
 
-## 🎨 Styling
+## Styling
 
 | Class | Description |
 |-------|-------------|
