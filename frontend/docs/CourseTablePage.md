@@ -44,8 +44,8 @@ Your chosen option, along with the total number of courses, is displayed on the 
 You can also go to the previous or next page using these controls. Simply use the left and right arrows or click on a page number to go to your desired page. <br>
 <img width="200" alt="Screenshot 2025-04-19 at 1 40 49 PM" src="https://github.com/user-attachments/assets/a231bed6-0db1-4631-b770-1dc16551a8b0" />
 
-
-
+### Dropdowns
+Instructions on the dropdowns are located in the following files: [SearchBar]([url](https://github.com/bbendou/GenEd-CMUQ/blob/frontend_documentation/frontend/docs/SearchBar.md)), [MultiSelectDropdown]([url](https://github.com/bbendou/GenEd-CMUQ/blob/frontend_documentation/frontend/docs/MultiSelectDropdown.md)), and [SingleSelectDropdown]([url](https://github.com/bbendou/GenEd-CMUQ/blob/frontend_documentation/frontend/docs/SingleSelectDropdown.md)).
 
 ---
 
