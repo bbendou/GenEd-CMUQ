@@ -5,7 +5,22 @@
 Displays a modal overlay containing detailed information about either a course or a requirement. Dynamically switches between `course` and `requirement` view modes. Used in the CourseTable to provide interactive, in-depth exploration.
 
 ---
+## Instructions
+The popup appears when a course code or requirement cell is clicked in the course table. It provides detailed information without navigating away from the main view.
 
+### Course Popups
+Clicking on a course code opens a popup displaying detailed course information, including the course code, title, unit count, description, prerequisites, semester offerings, and the requirements it fulfills across majors. You can scroll through the list of fulfilled requirements, organized by major. <br>
+<img width="300" alt="Screenshot 2025-04-19 at 12 36 51 PM" src="https://github.com/user-attachments/assets/24caac5a-c7f4-4213-ade7-42efedbfab2b" />
+
+### Requirement Popups
+Clicking on a requirement cell opens a popup showing all the courses that fulfill that specific requirement. The requirement name is shown at the top, and the list of matching courses appears below. Each course name is clickable and will open a course details popup when selected. <br>
+<img width="300" alt="Screenshot 2025-04-19 at 12 36 59 PM" src="https://github.com/user-attachments/assets/ebf6abbd-155f-42a8-8691-224d498d5c67" />
+
+
+### Closing the Popup
+Click the ✖ icon in the top-right corner of the popup panel to close it and return to the main view.
+
+---
 ## Props
 
 | Prop Name   | Type     | Required | Description |
