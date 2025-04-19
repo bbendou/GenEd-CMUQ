@@ -92,7 +92,7 @@ frontend/
 
 ## Running Tests
 
-The frontend uses **Jest** and **React Testing Library** for testing.
+The frontend uses **Jest** and **React Testing Library** for testing. Make sure you are in the frontend folder before running tests.
 
 ### Running All Tests
 ```bash
