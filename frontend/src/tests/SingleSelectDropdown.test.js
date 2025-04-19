@@ -4,7 +4,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import SingleSelectDropdown from '../src/components/SingleSelectDropdown.js';
+import SingleSelectDropdown from '../components/SingleSelectDropdown.js';
 
 describe('SingleSelectDropdown', () => {
   const mockOnChange = jest.fn();

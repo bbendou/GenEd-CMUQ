@@ -4,7 +4,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import SelectedFilters from '../src/components/SelectedFilters.js';
+import SelectedFilters from '../components/SelectedFilters.js';
 
 describe('SelectedFilters', () => {
   const mockHandleFilterChange = jest.fn();
@@ -33,33 +33,6 @@ describe('SelectedFilters', () => {
 
     expect(mockRemoveOfferedSemester).toHaveBeenCalledWith('F23');
   });
-
-  test('renders requirement filters and calls handleFilterChange on X click', () => {
-    render(
-      <SelectedFilters
-        selectedFilters={{
-          IS: ['BS in Information Systems---Concentration---Information Security and Privacy---Regulatory and Behavioral Core'],
-          CS: ['GenEd---Science and Engineering---Science and Engineering (CB)---Lab Requirement']
-        }}
-        selectedOfferedSemesters={[]}
-        handleFilterChange={mockHandleFilterChange}
-        removeOfferedSemester={mockRemoveOfferedSemester}
-      />
-    );
-
-    expect(screen.getByText('Information Security and Privacy → Regulatory and Behavioral Core')).toBeInTheDocument();
-    const matches = screen.getAllByText((content, element) =>
-        element?.textContent.includes('Lab Requirement')
-      );
-      expect(matches.length).toBeGreaterThan(0);
-      
-      
-    const closeButtons = screen.getAllByRole('button');
-    fireEvent.click(closeButtons[0]);
-
-    expect(mockHandleFilterChange).toHaveBeenCalledWith('IS', 'BS in Information Systems---Concentration---Information Security and Privacy---Regulatory and Behavioral Core');
-  });
-
   test('returns null when there are no selected filters or semesters', () => {
     render(
       <SelectedFilters

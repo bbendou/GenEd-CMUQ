@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react';
-import CourseTablePage from '../src/components/CourseTablePage';
+import CourseTablePage from '../components/CourseTablePage';
 import '@testing-library/jest-dom';
 
 // Mock localStorage

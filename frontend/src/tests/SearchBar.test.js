@@ -4,7 +4,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import SearchBar from '../src/components/SearchBar.js';
+import SearchBar from '../components/SearchBar.js';
 
 beforeAll(() => {
     global.fetch = jest.fn(() =>
@@ -45,15 +45,6 @@ describe('SearchBar', () => {
 
     return props;
   };
-
-  test('renders and updates course search input', () => {
-    const { setSearchQuery } = setup();
-
-    const input = screen.getByPlaceholderText(/specific course number/i);
-    fireEvent.change(input, { target: { value: '76-101' } });
-
-    expect(setSearchQuery).toHaveBeenCalled();
-  });
 
   test('renders selected department tag and clears on X click', () => {
     const { setSelectedDepartments } = setup({

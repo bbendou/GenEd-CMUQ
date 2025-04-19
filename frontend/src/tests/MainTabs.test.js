@@ -3,13 +3,12 @@
  */
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import MainTabs from '../src/components/MainTabs';
+import MainTabs from '../components/MainTabs';
 import '@testing-library/jest-dom';
 
-// Mock child components so we can isolate MainTabs behavior
-jest.mock('../src/components/CourseTablePage', () => () => <div data-testid="general-tab">Course Table Page</div>);
-jest.mock('../src/components/PlanCourseTab', () => () => <div data-testid="plan-tab">Plan Course Tab</div>);
-jest.mock('../src/components/Analytics', () => () => <div data-testid="analytics-tab">Analytics Page</div>);
+jest.mock('../components/CourseTablePage', () => () => <div data-testid="general-tab">Course Table Page</div>);
+jest.mock('../components/PlanCourseTab', () => () => <div data-testid="plan-tab">Plan Course Tab</div>);
+jest.mock('../components/Analytics', () => () => <div data-testid="analytics-tab">Analytics Page</div>);
 
 describe('MainTabs', () => {
   beforeEach(() => {

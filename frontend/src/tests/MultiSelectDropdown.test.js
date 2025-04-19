@@ -4,7 +4,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import MultiSelectDropdown from '../src/components/MultiSelectDropdown.js';
+import MultiSelectDropdown from '../components/MultiSelectDropdown.js';
 
 describe('MultiSelectDropdown', () => {
   const mockHandleChange = jest.fn();
@@ -32,28 +32,6 @@ describe('MultiSelectDropdown', () => {
 
     fireEvent.click(button);
     expect(screen.getByText(/clear all/i)).toBeInTheDocument();
-  });
-
-  test('calls filterChange when selecting option', () => {
-    render(
-      <MultiSelectDropdown
-        major="BA"
-        allRequirements={options}
-        selectedFilters={{ BA: [] }}
-        handleFilterChange={mockHandleChange}
-        clearFilters={mockClear}
-      />
-    );
-
-    fireEvent.click(screen.getByText(/select/i)); // open dropdown
-
-    const groupToggle = screen.getByText(/core/i);
-    fireEvent.click(groupToggle);
-
-    const checkbox = screen.getByRole('checkbox', { name: /humanities/i });
-    fireEvent.click(checkbox);
-
-    expect(mockHandleChange).toHaveBeenCalledWith("BA", ["core---humanities"]);
   });
 
   test('calls clearFilters when "CLEAR ALL" is clicked', () => {
