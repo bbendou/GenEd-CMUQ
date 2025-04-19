@@ -5,6 +5,18 @@
 Renders the main table displaying filtered courses. Includes interactive filters per major, prerequisite status, and semester offerings. Each row supports a popup to show detailed course or requirement information. Also adapts behavior for “Plan” and “View” tabs.
 
 ---
+## Instructions
+1. On the top of the page, select the *View* or *Plan* tab.
+2. Choose a filter, from the dropdowns or the search bar, or search for a course on the search bar. This should reflect and automatically update the course table accordingly. <br>
+   <img width="800" alt="Screenshot 2025-04-19 at 1 26 11 PM" src="https://github.com/user-attachments/assets/d8530c57-59ba-4f0e-a948-d2c43397eb2d" />
+
+- When the pre-req list is long, click on the *Show More/Less* button to toggle details.
+- When on the *Summarized* or *Compact* view, the semester offerings list will also have a similar toggle. Click on the *Show More/Less* button to toggle details. <br><img width="200" alt="Screenshot 2025-04-19 at 1 29 18 PM" src="https://github.com/user-attachments/assets/7fcc0a0c-9f55-4c03-8cfe-030a13d26223" />
+
+  <img width="200" alt="Screenshot 2025-04-19 at 1 30 20 PM" src="https://github.com/user-attachments/assets/72cee343-cf82-4a7b-ae73-54f9e0058d0c" />
+
+
+---
 
 ## Props
 
