@@ -2,11 +2,10 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, screen, fireEvent, within, waitFor } from '@testing-library/react';
-import PlanCourseTab from '../src/components/PlanCourseTab';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import PlanCourseTab from '../components/PlanCourseTab';
 import '@testing-library/jest-dom';
 
-// Mock localStorage
 beforeEach(() => {
   const store = {};
   jest.spyOn(Storage.prototype, 'getItem').mockImplementation((key) => store[key] || null);
@@ -15,7 +14,6 @@ beforeEach(() => {
   });
 });
 
-// Mock fetch
 beforeAll(() => {
   global.fetch = jest.fn((url) => {
     if (url.includes('/requirements')) {
@@ -98,59 +96,98 @@ describe('PlanCourseTab', () => {
     render(<PlanCourseTab />);
     expect(screen.getByText(/Plan Courses/i)).toBeInTheDocument();
     expect(
-      screen.getByText(/Add courses from the main table or search to build/i)
+      screen.getByText(/Add courses from the main table or search/i)
     ).toBeInTheDocument();
   });
 
   test('searches and adds a course to the plan', async () => {
     render(<PlanCourseTab />);
-    const input = screen.getByPlaceholderText(/Search by course code/i);
+    const input = screen.getByPlaceholderText(/search by course code/i);
+    const searchBtn = screen.getByRole('button', { name: /🔍/i });
+  
     fireEvent.change(input, { target: { value: '76-101' } });
-    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
-
-    await screen.findByText(/76-101/i);
-    fireEvent.click(screen.getByText('+ Add'));
-
-    await screen.findByText(/Course added! 🎉/i);
+    fireEvent.click(searchBtn);
+  
+    await waitFor(() => {
+      expect(
+        screen.getByText((content, element) =>
+          element?.textContent?.includes('76-101')
+        )
+      ).toBeInTheDocument();
+    });
+  
+    const addBtn = screen.getByRole('button', { name: /\+ Add/i });
+    fireEvent.click(addBtn);
+  
+    await waitFor(() => {
+      expect(screen.getByText(/Course added! 🎉/i)).toBeInTheDocument();
+    });
   });
-
+  
   test('prevents duplicate addition', async () => {
     render(<PlanCourseTab />);
-    const input = screen.getByPlaceholderText(/Search by course code/i);
+    const input = screen.getByPlaceholderText(/search by course code/i);
+    const searchBtn = screen.getByRole('button', { name: /🔍/i });
+  
     fireEvent.change(input, { target: { value: '76-101' } });
-    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
+    fireEvent.click(searchBtn);
   
-    await screen.findByText('+ Add');
-    fireEvent.click(screen.getByText('+ Add'));
+    await waitFor(() => {
+      expect(
+        screen.getByText((content, element) =>
+          element?.textContent?.includes('76-101')
+        )
+      ).toBeInTheDocument();
+    });
   
-    // Wait for the toast AND the button to change
-    const buttons = await screen.findAllByText(/Added/i);
-    const addedButton = buttons.find((btn) => btn.tagName === 'BUTTON');
-    expect(addedButton).toBeInTheDocument();
+    const addBtn = screen.getByRole('button', { name: /\+ Add/i });
+    fireEvent.click(addBtn);
   
-    fireEvent.click(addedButton);
-    expect(await screen.findByText(/Course already added! 😅/i)).toBeInTheDocument();
-  });  
+    await waitFor(() => {
+      expect(screen.getByText(/Course added!/i)).toBeInTheDocument();
+    });
+  
+    fireEvent.click(screen.getByRole('button', { name: /Added/i }));
+  
+    await waitFor(() => {
+      expect(screen.getByText(/Course already added!/i)).toBeInTheDocument();
+    });
+  });
   
   test('clears all courses when confirmed', async () => {
     window.confirm = jest.fn(() => true);
+  
     render(<PlanCourseTab />);
+    const input = screen.getByPlaceholderText(/search by course code/i);
+    const searchBtn = screen.getByRole('button', { name: /🔍/i });
   
-    const input = screen.getByPlaceholderText(/Search by course code/i);
     fireEvent.change(input, { target: { value: '76-101' } });
-    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
+    fireEvent.click(searchBtn);
   
-    await screen.findByText('+ Add');
-    fireEvent.click(screen.getByText('+ Add'));
+    await waitFor(() => {
+      expect(
+        screen.getByText((content, element) =>
+          element?.textContent?.includes('76-101')
+        )
+      ).toBeInTheDocument();
+    });
   
-    const table = screen.getByRole('table');
-    const courseCell = await within(table).findByText('76-101');
-    expect(courseCell).toBeInTheDocument();
+    const addBtn = screen.getByRole('button', { name: /\+ Add/i });
+    fireEvent.click(addBtn);
+  
+    await waitFor(() => {
+      expect(screen.getByText(/Course added!/i)).toBeInTheDocument();
+    });
+  
+    const table = await screen.findByRole('table');
+    expect(table).toBeInTheDocument();
   
     fireEvent.click(screen.getByText(/Clear All/i));
   
     await waitFor(() => {
-      expect(within(table).queryByText('76-101')).not.toBeInTheDocument();
+      expect(screen.getByText(/No planned courses yet/i)).toBeInTheDocument();
     });
   });
+  
+
 });

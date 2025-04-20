@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+# GenEd Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This directory contains the React.js frontend application for the CMU-Q General Education course planning platform. It provides a searchable, filterable UI to explore and plan general education and core requirements across different majors.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Node.js (v16+ recommended)
+* npm (comes with Node.js)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Setup
 
-### `npm test`
+1. **Navigate to the frontend directory:**
+   ```bash
+   cd path/to/GenEd-CMUQ/frontend
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. **Run the development server:**
+   ```bash
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The app will be accessible at `http://localhost:3000`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> ⚠️ Make sure the backend is running and available at the correct API base URL. You can configure this in `.env`:
+> ```env
+> REACT_APP_API_BASE_URL=http://127.0.0.1:8000
+> ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 🔍 Search for courses by department and course number.
+- ✅ Filter by campus offering, prerequisites, GenEd/Core types, and requirement fulfillment.
+- 📚 View courses fulfilling specific requirements.
+- 📊 Paginated results for easy navigation.
+- 🧩 Modular components with popup detail views.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Components Overview
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Component | Purpose |
+|----------|---------|
+| `CourseTablePage.js` | Top-level controller for state and layout. Combines filters, search bar, and table. |
+| `SearchBar.js` | Handles department selection, search input, and checkbox filters. |
+| `CourseTable.js` | Renders the course data in a table format with dynamic requirement columns. |
+| `MultiSelectDropdown.js` | Generic dropdown for selecting multiple filters (e.g. requirements, semesters). |
+| `MultiSelectDepartment.js` | Specialized dropdown for department filtering. |
+| `SelectedFilters.js` | Shows active filters with remove buttons. |
+| `PopUp.js` | Modal that shows detailed course or requirement information. |
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## File Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+frontend/
+│
+├── public/                # Static files
+│   ├── index.html
+│   ├── manifest.json      # PWA settings
+│   └── icons              # App icons 
+│
+├── docs/                # Documentation on all components
+│
+├── src/
+│   ├── components/        # React components
+│   │   ├── CourseTablePage.js
+│   │   ├── CourseTable.js
+│   │   ├── SearchBar.js
+│   │   ├── PopUp.js
+│   │   ├── MultiSelectDropdown.js
+│   │   ├── MultiSelectDepartment.js
+│   │   └── SelectedFilters.js
+│   ├── styles.css         # App styling
+│   ├── planTabStyles.css  # App styling for planning tab
+│   └── index.js           # Entry point
+│   └── App.js           
+│
+├── .env                   # API base URL config
+├── package.json           # Project metadata & dependencies
+└── README.md              # This file
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Running Tests
 
-### Analyzing the Bundle Size
+The frontend uses **Jest** and **React Testing Library** for testing. Make sure you are in the frontend folder before running tests.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Running All Tests
+```bash
+npm test
+```
 
-### Making a Progressive Web App
+### Running a Specific Test File
+```bash
+npm test CourseTable.test.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Example Test Files
+Tests are located in the `frontend/tests/` directory and include:
 
-### Advanced Configuration
+```
+tests/
+├── CourseTable.test.js
+├── SearchBar.test.js
+├── CourseTablePage.test.js
+├── MultiSelectDropdown.test.js
+└── ...
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Tests cover component rendering, user interactions, and prop handling. Each test simulates real user behavior using `@testing-library/react`.
 
-### Deployment
+> Make sure all required props are mocked correctly in your tests to avoid runtime errors.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Development Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Data is fetched dynamically via REST API endpoints from the FastAPI backend.
+- API errors are handled in `useEffect` hooks with simple `console.error()` logs—consider improving with user notifications.
+- The UI is responsive and works across modern browsers.
+
+---
+
+## Progressive Web App (PWA)
+
+The frontend includes a `manifest.json` file to support installation as a PWA. Icons and colors can be customized in `public/manifest.json`.
+
+---
+
+## Authors
+
+This project was developed by CMU-Q Students, Boushra, Jullia, and Yousuf, for the **67-373 Information Systems Consulting Project**.

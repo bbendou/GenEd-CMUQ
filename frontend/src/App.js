@@ -1,9 +1,6 @@
-// import CourseTableMock from "./components/courseTableMock/courseTableMock.js";
-// import CourseTableMock from "./components/CourseTablePage";
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainTabs from "./components/MainTabs";
-// import CourseTablePage from './components/CourseTablePage';
 import DataUpload from './components/DataUpload';
 import "./styles.css";
 
